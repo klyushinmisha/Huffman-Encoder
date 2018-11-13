@@ -8,7 +8,7 @@ HuffmanCode::HuffmanCode(TreeNode* head, QString& buf)
     for (auto i = codes->begin(); i != codes->end(); i++){
         QString tmp = QString::number(static_cast<int>((*i).second->value), 2);
         for (int j = (*i).second->length - tmp.length(); j > 0; j--) tmp = "0" + tmp;
-        buf += QString((*i).first) + " — " + tmp + "\n";
+        buf += "0x" + QString::number(static_cast<int>((*i).first), 16) + " — " + tmp + "\n";
     }
 }
 
