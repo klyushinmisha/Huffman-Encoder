@@ -5,10 +5,10 @@
 #include <QString>
 
 typedef struct _Code{
-    char value;
+    ushort value;
     int length;
 
-    _Code(char value, int length){
+    _Code(ushort value, int length){
         this->value = value;
         this->length = length;
     }
@@ -25,7 +25,7 @@ public:
     HuffmanCodes(TreeNode*);
     Code* operator[](char);
     QString toString();
-    void treeWork(TreeNode*, char, int);
+    void treeWork(TreeNode*, ushort, int);
 };
 
 #endif // HUFFMANCODE_H
