@@ -1,6 +1,11 @@
 #include "huffmandecoder.h"
 
-HuffmanDecoder::HuffmanDecoder()
+HuffmanDecoder::HuffmanDecoder(HuffmanCodes hc)
+{
+
+}
+
+void HuffmanDecoder::run(QByteArray)
 {
 
 }

@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
+
+#include <huffmanencoder.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,11 +16,31 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    QFileDialog fd;
+    QString path = fd.getOpenFileName();
+    QFile f(path);
+    if (!f.open(QIODevice::ReadOnly)) return;
+    bytes = f.readAll();
+    ui->textEdit->setText("Loaded file " + path);
+    f.close();
+}
+
 void MainWindow::on_pushButton_clicked()
 {
-    QByteArray bytes = QByteArray::fromRawData("beep boop beer!", 15);
+    if (bytes.count() == 0){
+        QMessageBox::information(this, "Error", "File wasn't loaded");
+        return;
+    }
+
     HuffmanTree ht(bytes);
-    QString str;
-    HuffmanCode hc(ht.getHead(), str);
-    ui->textEdit->setText(str);
+    HuffmanCodes hc(ht.getHead());
+    ui->textEdit->append("\nHuffman codes:\n" + hc.toString());
+
+    QFileDialog fd;
+    fd.setFileMode(fd.AnyFile);
+    QString path = fd.getSaveFileName(this, "Comparessed file");
+
+    HuffmanEncoder he(hc);
 }

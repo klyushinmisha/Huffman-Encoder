@@ -28,16 +28,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     huffmantree.cpp \
-    huffmancode.cpp \
     huffmanencoder.cpp \
-    huffmandecoder.cpp
+    huffmandecoder.cpp \
+    huffmancodes.cpp
 
 HEADERS += \
         mainwindow.h \
     huffmantree.h \
-    huffmancode.h \
     huffmanencoder.h \
-    huffmandecoder.h
+    huffmandecoder.h \
+    huffmancodes.h
 
 FORMS += \
         mainwindow.ui

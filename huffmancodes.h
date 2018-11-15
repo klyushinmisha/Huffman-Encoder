@@ -15,14 +15,16 @@ typedef struct _Code{
 
 }Code;
 
-class HuffmanCode
+class HuffmanCodes
 {
 private:
     std::map<char, Code*>* codes;
 
 public:
-    HuffmanCode(TreeNode*, QString& s);
+    HuffmanCodes();
+    HuffmanCodes(TreeNode*);
     Code* operator[](char);
+    QString toString();
     void treeWork(TreeNode*, char, int);
 };
 

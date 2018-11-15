@@ -3,7 +3,9 @@
 
 #include <QMainWindow>
 #include <huffmantree.h>
-#include <huffmancode.h>
+#include <huffmancodes.h>
+#include <QFileDialog>
+#include <QFile>
 
 namespace Ui {
 class MainWindow;
@@ -18,10 +20,14 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_pushButton_2_clicked();
+
     void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QByteArray bytes;
+    HuffmanCodes hc;
 };
 
 #endif // MAINWINDOW_H
