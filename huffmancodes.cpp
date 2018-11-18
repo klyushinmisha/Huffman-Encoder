@@ -1,5 +1,4 @@
 #include "huffmancodes.h"
-#include <QString>
 
 HuffmanCodes::HuffmanCodes(){}
 

@@ -1,6 +1,7 @@
 #include <QByteArray>
 #include <list>
 #include <map>
+#include <vector>
 #include <algorithm>
 
 #ifndef HUFFMANTREE_H
@@ -12,9 +13,9 @@ typedef struct _TreeNode{
     int weight;
     char value;
 
-    _TreeNode(char b){
+    _TreeNode(char b, int weight){
         value = b;
-        weight = 1;
+        this->weight = weight;
     }
 
     _TreeNode(_TreeNode* a, _TreeNode* b){
@@ -31,7 +32,7 @@ class HuffmanTree
 private:
     TreeNode* head;
     std::list<TreeNode*>* getNodesList(QByteArray);
-    void replaceWithParent(std::list<TreeNode*>*);
+    void replaceNodes(std::list<TreeNode*>*);
 
 public:
     HuffmanTree(QByteArray);
